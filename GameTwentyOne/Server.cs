@@ -29,16 +29,14 @@ namespace Server
                 listeningTask.Start();
 
                 OnGameStart.Invoke();
+
+                while (IsServerRunning) { }
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                Close();
-            }
-            
         }
 
         private static void Init(int localPort, int remotePort)

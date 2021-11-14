@@ -54,6 +54,8 @@ namespace Server
             var card = Deck.GetCard();
             playerHand.Add(card);
 
+            Server.Send($"Your card: {card} \n\t Your score: {playerScore} \n Do you want one more card?");
+
             if (playerScore == 21)
             {
                 Server.Send($"Your score: {playerScore} \n Dealer score: {dealerScore} \n You win!");
@@ -64,8 +66,6 @@ namespace Server
                 Server.Send($"Your score: {playerScore} \n Dealer score: {dealerScore} \n Dealer win!");
                 Server.Stop();
             }
-            else 
-                Server.Send($"Your card: {card} \n\t Your score: {playerScore} \n Do you want one more card?");
         }
 
         public void DealDealerCard()

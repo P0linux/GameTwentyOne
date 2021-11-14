@@ -41,8 +41,10 @@ namespace Server
         {
             Cards = new List<Card>();
 
-            for (int i = 0; i < 9; i++)
+            for (int i = 2; i <= 11; i++)
             {
+                if (i == 5) continue;
+
                 for (int j = 0; j < 4; j++)
                 {
                     Cards.Add(new Card((CardRank)i, (CardSuit)j));
